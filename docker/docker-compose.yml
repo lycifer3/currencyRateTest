@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+    #Nginx Service
+    nginx:
+        image: nginx:1.21
+        ports:
+            - "80:80"
+        volumes:
+            - ../app:/app
+            - ./nginx:/etc/nginx/conf.d
+        depends_on:
+            - php_fpm
+        networks:
+            - btc
+
+    #PHP Service
+    php_fpm:
+        build: php-fpm
+        ports:
+            - "8080:8080"
+        volumes:
+            - ../app:/app
+            - ./php-fpm/local.ini:/usr/local/etc/php/conf.d/local.ini
+            - ./php-fpm/logs:/var/log/
+        networks:
+            - btc
+
+    #MySQL Service
+    db:
+        image: percona:8.0
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_DATABASE: course
+            MYSQL_ROOT_PASSWORD: 123456
+            MYSQL_ROOT_HOST: '%'
+        volumes:
+            - ./db/lib:/var/lib/mysql/
+            - ./db/my.cnf:/etc/mysql/my.cnf
+            - ./db/mysql-files:/var/lib/mysql-files
+        networks:
+            - btc
+
+networks:
+    btc:
+        driver: bridge
