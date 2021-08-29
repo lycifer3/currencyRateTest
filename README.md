@@ -21,7 +21,7 @@ docker-compose exec php_fpm php bin/comsole doctrine:migrations:migrate
 ```
 docker-compose exec php_fpm php bin/console doctrine:fixtures:load
 ```
-API Endpoints test
+API Endpoints
 =============
 
 1. `http://localhost/api/bitcoin-rate`
