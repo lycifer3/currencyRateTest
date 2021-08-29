@@ -7,6 +7,7 @@ Run Project
 ```
 docker-compose up -d 
 ```
+2. The course is updated by cron every 5 minutes, to change the frequency, edit the file `./docker/php-fpm/crontab`
 ### Project setting
 
 1. Install composer packages

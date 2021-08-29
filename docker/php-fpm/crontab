@@ -1,3 +1,2 @@
-* * * * * root echo "Hello world" >> /var/log/cron.log 2>&1
-*\5 * * * * root php /app/bin/console app:update-courses > /var/log/cron.log
+*/5 * * * * cd /app && /usr/local/bin/php bin/console app:update-courses > /var/log/command-log.txt -e prod
 #
