@@ -4,19 +4,12 @@ namespace App\Controller;
 
 use App\Dto\CurrencyRateDto;
 use App\Repository\CurrencyRateRepository;
-use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 
 /**
  * @property CurrencyRateRepository currencyRateRepository

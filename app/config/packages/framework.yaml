@@ -8,8 +8,6 @@ framework:
         log: true
 
     validation: { enabled: true }
-    serializer:
-        circular_reference_handler: App\Service\CircularReferenceHandler
 
 when@test:
     framework:
